@@ -17,7 +17,7 @@ export function getShops(){
 
 export function getID(shopName){
   let div = document.createElement('div');
-  fetch("https://donutshop-api.herokuapp.com/shop-id?shopName=Gabes%20Donut%20Shop", {
+  fetch("https://donutshop-api.herokuapp.com/shop-id?", {
   "method": "POST",
   "headers": {"Content-Type": "application/json"},
   "body": JSON.stringify({'name': shopName})
