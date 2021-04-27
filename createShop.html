@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <script type="module">
+            import {createShop} from './newHelpers.js';
+            let shopName;
+            document.querySelector('button').addEventListener('click', () => {
+                shopName = (document.querySelector('#shopName').value);
+            })
+            document.querySelector('button').addEventListener('click', () => {
+                createShop(shopName);
+            });
+        </script>
+    </head>
     <body>
         <h1>New Shop</h1>
+        <label for="shopName">Enter New Shop Name:</label>
+        <input type="text" id="shopName">
+        <button>Create Shop</button>
     </body>
 </html>

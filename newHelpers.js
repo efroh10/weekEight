@@ -1,3 +1,58 @@
+export function getShops(){
+  fetch("https://donutshop-api.herokuapp.com/shops", {
+  "method": "GET",
+})
+.then(response => response.json())
+.then(data => {
+  for(let x = 0; x < data.length; x++) {
+    let opt = document.createElement('option');
+    opt.value = data[x];
+    document.querySelector('datalist').append(opt);
+  }
+})
+.catch(err => {
+  console.error(err);
+});
+}
+
+export function getID(shopName){
+  let div = document.createElement('div');
+  fetch("https://donutshop-api.herokuapp.com/shop-id?shopName=Gabes%20Donut%20Shop", {
+  "method": "POST",
+  "headers": {"Content-Type": "application/json"},
+  "body": JSON.stringify({'name': shopName})
+})
+.then(response => response.json())
+.then(data => {
+  let result;
+  result += Object.entries(data)
+  console.log(result);
+  div.innerHTML += result;
+})
+.catch(err => {
+  console.error(err);
+});
+document.body.append(div);
+}
+
+export function createShop(shopName){
+  let div = document.createElement('div');
+  fetch("https://donutshop-api.herokuapp.com/create-donut-shop", {
+    "method": "POST",
+    "headers": {"Content-Type": "application/json"},
+    "body": JSON.stringify({'name': shopName})
+  })
+  .then(response => response.json())
+  .then(data => {
+    let result;
+    result += Object.entries(data);
+    console.log(result);
+    div.innerHTML += result;
+  })
+  .catch(err => {console.error(err);});
+  document.body.append(div);
+}
+
 export function getInventory(){
     let div = document.createElement('div');
     fetch("https://donutshop-api.herokuapp.com/inventory?id=634", {

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="module">
+            import {getShops, getID} from './newHelpers.js';
+            getShops();
+            let shopName;
+            document.querySelector('button').addEventListener('click', () => {
+                shopName = (document.querySelector('#findShop').value)
+                getID(shopName);
+            })
+        </script>
+    </head>
+    <body>
+        <label for="findShop">Enter the Name of a Shop to Find its ID:</label>
+        <input list="shopList" id="findShop">
+        <datalist id="shopList"></datalist>
+        <button>Find A Shop</button>
+    </body>
+</html>
