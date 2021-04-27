@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body>
-        <h1>Print Master Inventory</h1>
-        <script>
-            function getInventory(){
-                let div = document.createElement('div');
-    fetch("https://donutshop-api.herokuapp.com/inventory?id=634", {
-  "method": "GET",
-})
-.then(response => response.json())
-.then(data => div.innerHTML = data)
-.catch(err => {
-  console.error(err);
-});
-document.body.append(div);
- }
-        </script>
-        <button onclick="getInventory()">Get Inventory</button>
-    </body>
+  <head>
+    <script type="module">
+      import {getInventory} from './newHelpers.js';
+      document.querySelector('button').addEventListener('click', () => {
+        getInventory();
+      });
+    </script>
+  </head>
+  <body>
+      <h1>Print Master Inventory</h1>
+      <button>Get Inventory</button>
+  </body>
 </html>

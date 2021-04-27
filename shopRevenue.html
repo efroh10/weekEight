@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <script type="module">
+            import {getRevenue} from './newHelpers.js';
+            document.querySelector('button').addEventListener('click', () => {
+              getRevenue();
+            });
+          </script>
+    </head>
     <body>
         <h1>Print Shop Revenue</h1>
+        <button>Print Revenue</button>
     </body>
-</html>Í
+</html>
